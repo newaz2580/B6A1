@@ -1,19 +1,14 @@
-##What are some differences between interfaces and types in TypeScript?
+Differences between interface and type in TypeScript
 
-TypeScript আমাদের JavaScript-এর উপরে টাইপ সেফটি এনে দেয়। কিন্তু নতুনদের জন্য কখন কোন টুল ব্যবহার করা উচিত তা বোঝা মাঝে মাঝে জটিল হয়ে যায়। এখানে আমরা দুটি গুরুত্বপূর্ণ বিষয় নিয়ে আলোচনা করবো:
+TypeScript-এ আমরা ডেটা স্ট্রাকচার ডিফাইন করার জন্য interface এবং type ব্যবহার করি। দুটির মধ্যে কিছু গুরুত্বপূর্ণ পার্থক্য রয়েছে:
 
-1️⃣ Interface বনাম Type
-2️⃣ Any, Unknown, এবং Never টাইপ
+1️⃣ Interface
 
-১. Interface vs Type
+অবজেক্ট স্ট্রাকচারের জন্য: interface মূলত অবজেক্ট টাইপ ডিফাইন করতে ব্যবহৃত হয়।
 
-TypeScript-এ আমরা ডেটা স্ট্রাকচার ডিফাইন করার জন্য দুইটি মূল টুল পাই: interface এবং type। যদিও দুটির কাজ অনেকটা মিল, কিছু গুরুত্বপূর্ণ পার্থক্য রয়েছে।
+এক্সটেন্ড করা যায়: অন্য interface extends করে প্রপার্টি বা টাইপ এক্সটেন্ড করা যায়।
 
-Interface
-
-এক্সটেন্ড করা যায়: অন্য interface extends করে ব্যবহার করা সম্ভব।
-
-ডিক্লারেশন মার্জিং: একই নামে একাধিক interface থাকলে TypeScript তাদের অটোম্যাটিকভাবে মার্জ করে।
+ডিক্লারেশন মার্জিং সম্ভব: একই নামে একাধিক interface থাকলেও TypeScript স্বয়ংক্রিয়ভাবে মার্জ করে।
 
 শুধুমাত্র অবজেক্ট স্ট্রাকচার: প্রিমিটিভ টাইপ (string, number) আলিয়াস করা যায় না।
 
@@ -29,28 +24,15 @@ interface Dog extends Animal {
 
 // Dog এর টাইপ: { name: string; breed: string; }
 
-Type
+2️⃣ Type
 
-কম্বিনেশন করা যায়: & (ইন্টারসেকশন) ব্যবহার করে অন্যান্য type-এর সাথে কম্বাইন করা যায়।
+বৃহত্তর ব্যবহার: type অবজেক্ট, প্রিমিটিভ, ইউনিয়ন বা ইন্টারসেকশন টাইপের জন্য ব্যবহার করা যায়।
+
+কম্বিনেশন: & (ইন্টারসেকশন) ব্যবহার করে একাধিক type একত্র করা যায়।
 
 ডিক্লারেশন মার্জিং সম্ভব নয়।
 
-প্রিমিটিভ টাইপ আলিয়াস: যেমন string, number ইত্যাদি।
-
-উদাহরণ:
-
-type AnimalType = { name: string };
-type DogType = AnimalType & { breed: string };
-
-// DogType: { name: string; breed: string; }
-
-
-সারসংক্ষেপ:
-
-জটিল অবজেক্টের জন্য interface।
-
-প্রিমিটিভ টাইপ, ইউনিয়ন বা ইন্টারসেকশনের জন্য type।
-
+প্রিমিটিভ টাইপ আলিয়াস করা যায়: যেমন string, number ইত্যাদি।
 
 প্রশ্ন ২: TypeScript-এ any, unknown, এবং never টাইপের মধ্যে পার্থক্য ব্যাখ্যা করুন। উদাহরণসহ দেখান।
 
