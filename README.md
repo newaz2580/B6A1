@@ -52,47 +52,55 @@ type DogType = AnimalType & { breed: string };
 প্রিমিটিভ টাইপ, ইউনিয়ন বা ইন্টারসেকশনের জন্য type।
 
 
-###২. Any, Unknown, এবং Never টাইপ
+প্রশ্ন ২: TypeScript-এ any, unknown, এবং never টাইপের মধ্যে পার্থক্য ব্যাখ্যা করুন। উদাহরণসহ দেখান।
 
-TypeScript-এ টাইপ সেফটি বজায় রাখতে এই তিনটি টাইপ গুরুত্বপূর্ণ:
+TypeScript-এ টাইপ সেফটি বজায় রাখতে এই তিনটি টাইপ গুরুত্বপূর্ণ ভূমিকা রাখে।
 
-Any
+1️⃣ Any
 
 যেকোনো মান রাখা যায় এবং যেকোনো অপারেশন করা যায়।
 
-টাইপ চেকিং সম্পূর্ণ বাইপাস হয়।
+টাইপ চেকিং সম্পূর্ণ বাইপাস করে।
 
-ব্যবহার সম্ভব হলে এড়িয়ে চলা উচিত।
+ব্যবহার সম্ভব হলে এড়িয়ে চলা উচিত, কারণ এটি টাইপ সেফটি নষ্ট করে।
 
-let value: any = "Hello";
-value = 42; // কোনো error নেই
+উদাহরণ:
 
-Unknown
+let a: any = "Hello";
+a = 42; // কোনো error নেই
+console.log(a.toFixed(2)); // runtime error হতে পারে যদি টাইপ ভুল হয়
+
+2️⃣ Unknown
 
 যেকোনো মান রাখা যায়, কিন্তু সরাসরি ব্যবহার করা যায় না।
 
 ব্যবহার করার আগে টাইপ চেক বা assertion করতে হবে।
 
-let value: unknown = "Hello";
-if (typeof value === "string") {
-  console.log(value.toUpperCase()); // এখন safe
+Type-safe উপায়ে ডায়নামিক ভ্যালু হ্যান্ডল করতে সাহায্য করে।
+
+উদাহরণ:
+
+let b: unknown = "Hello";
+
+// সরাসরি ব্যবহার করলে error
+// console.log(b.toUpperCase()); // ❌ Error
+
+if (typeof b === "string") {
+  console.log(b.toUpperCase()); // ✅ Safe
 }
 
-Never
+3️⃣ Never
 
-নির্দেশ করে কোনো মান কখনো রিটার্ন করবে না।
+কোনো মান কখনো রিটার্ন করবে না।
 
-যেমন কোনো ফাংশন সবসময় error throw করলে বা ইনফিনিট লুপে থাকে।
+সাধারণত ফাংশন যা সবসময় error throw করে বা ইনফিনিট লুপে থাকে।
 
-function throwError(message: string): never {
-  throw new Error(message);
+উদাহরণ:
+
+function throwError(msg: string): never {
+  throw new Error(msg);
 }
 
-
-সারসংক্ষেপ:
-
-any → টাইপ সেফটি নষ্ট করে।
-
-unknown → টাইপ সেফ উপায়ে ডায়নামিক ভ্যালু হ্যান্ডল করতে সাহায্য করে।
-
-never → অসম্ভব অবস্থা বা কখনো না-রিটার্ন অবস্থা নির্দেশ করে।
+function infiniteLoop(): never {
+  while(true) { }
+}
