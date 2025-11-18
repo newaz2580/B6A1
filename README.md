@@ -1,4 +1,4 @@
-###What are some differences between interfaces and types in TypeScript?
+##What are some differences between interfaces and types in TypeScript?
 
 TypeScript আমাদের JavaScript-এর উপরে টাইপ সেফটি এনে দেয়। কিন্তু নতুনদের জন্য কখন কোন টুল ব্যবহার করা উচিত তা বোঝা মাঝে মাঝে জটিল হয়ে যায়। এখানে আমরা দুটি গুরুত্বপূর্ণ বিষয় নিয়ে আলোচনা করবো:
 
