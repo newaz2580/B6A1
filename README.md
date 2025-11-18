@@ -1,4 +1,5 @@
-Differences between interface and type in TypeScript
+1.What are some differences between interfaces and types in TypeScript?
+
 
 TypeScript-এ আমরা ডেটা স্ট্রাকচার ডিফাইন করার জন্য interface এবং type ব্যবহার করি। দুটির মধ্যে কিছু গুরুত্বপূর্ণ পার্থক্য রয়েছে:
 
@@ -34,7 +35,12 @@ interface Dog extends Animal {
 
 প্রিমিটিভ টাইপ আলিয়াস করা যায়: যেমন string, number ইত্যাদি।
 
-প্রশ্ন ২: TypeScript-এ any, unknown, এবং never টাইপের মধ্যে পার্থক্য ব্যাখ্যা করুন। উদাহরণসহ দেখান।
+
+
+
+2.Explain the difference between any, unknown, and never types in TypeScript.
+
+
 
 TypeScript-এ টাইপ সেফটি বজায় রাখতে এই তিনটি টাইপ গুরুত্বপূর্ণ ভূমিকা রাখে।
 
